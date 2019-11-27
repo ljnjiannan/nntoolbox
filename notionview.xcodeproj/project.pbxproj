@@ -1,0 +1,584 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CFB0179B238E02AF00326CFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0179A238E02AF00326CFD /* AppDelegate.swift */; };
+		CFB0179D238E02AF00326CFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0179C238E02AF00326CFD /* ViewController.swift */; };
+		CFB0179F238E02B000326CFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFB0179E238E02B000326CFD /* Assets.xcassets */; };
+		CFB017A2238E02B000326CFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CFB017A0238E02B000326CFD /* Main.storyboard */; };
+		CFB017AE238E02B000326CFD /* notionviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB017AD238E02B000326CFD /* notionviewTests.swift */; };
+		CFB017B9238E02B000326CFD /* notionviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB017B8238E02B000326CFD /* notionviewUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		CFB017AA238E02B000326CFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB0178F238E02AF00326CFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFB01796238E02AF00326CFD;
+			remoteInfo = notionview;
+		};
+		CFB017B5238E02B000326CFD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CFB0178F238E02AF00326CFD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CFB01796238E02AF00326CFD;
+			remoteInfo = notionview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		CFB01797238E02AF00326CFD /* notionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notionview.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB0179A238E02AF00326CFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CFB0179C238E02AF00326CFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CFB0179E238E02B000326CFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CFB017A1238E02B000326CFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CFB017A3238E02B000326CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFB017A4238E02B000326CFD /* notionview.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = notionview.entitlements; sourceTree = "<group>"; };
+		CFB017A9238E02B000326CFD /* notionviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = notionviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB017AD238E02B000326CFD /* notionviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notionviewTests.swift; sourceTree = "<group>"; };
+		CFB017AF238E02B000326CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFB017B4238E02B000326CFD /* notionviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = notionviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFB017B8238E02B000326CFD /* notionviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = notionviewUITests.swift; sourceTree = "<group>"; };
+		CFB017BA238E02B000326CFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CFB01794238E02AF00326CFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB017A6238E02B000326CFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB017B1238E02B000326CFD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CFB0178E238E02AF00326CFD = {
+			isa = PBXGroup;
+			children = (
+				CFB01799238E02AF00326CFD /* notionview */,
+				CFB017AC238E02B000326CFD /* notionviewTests */,
+				CFB017B7238E02B000326CFD /* notionviewUITests */,
+				CFB01798238E02AF00326CFD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CFB01798238E02AF00326CFD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CFB01797238E02AF00326CFD /* notionview.app */,
+				CFB017A9238E02B000326CFD /* notionviewTests.xctest */,
+				CFB017B4238E02B000326CFD /* notionviewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CFB01799238E02AF00326CFD /* notionview */ = {
+			isa = PBXGroup;
+			children = (
+				CFB0179A238E02AF00326CFD /* AppDelegate.swift */,
+				CFB0179C238E02AF00326CFD /* ViewController.swift */,
+				CFB0179E238E02B000326CFD /* Assets.xcassets */,
+				CFB017A0238E02B000326CFD /* Main.storyboard */,
+				CFB017A3238E02B000326CFD /* Info.plist */,
+				CFB017A4238E02B000326CFD /* notionview.entitlements */,
+			);
+			path = notionview;
+			sourceTree = "<group>";
+		};
+		CFB017AC238E02B000326CFD /* notionviewTests */ = {
+			isa = PBXGroup;
+			children = (
+				CFB017AD238E02B000326CFD /* notionviewTests.swift */,
+				CFB017AF238E02B000326CFD /* Info.plist */,
+			);
+			path = notionviewTests;
+			sourceTree = "<group>";
+		};
+		CFB017B7238E02B000326CFD /* notionviewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				CFB017B8238E02B000326CFD /* notionviewUITests.swift */,
+				CFB017BA238E02B000326CFD /* Info.plist */,
+			);
+			path = notionviewUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CFB01796238E02AF00326CFD /* notionview */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB017BD238E02B000326CFD /* Build configuration list for PBXNativeTarget "notionview" */;
+			buildPhases = (
+				CFB01793238E02AF00326CFD /* Sources */,
+				CFB01794238E02AF00326CFD /* Frameworks */,
+				CFB01795238E02AF00326CFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = notionview;
+			productName = notionview;
+			productReference = CFB01797238E02AF00326CFD /* notionview.app */;
+			productType = "com.apple.product-type.application";
+		};
+		CFB017A8238E02B000326CFD /* notionviewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB017C0238E02B000326CFD /* Build configuration list for PBXNativeTarget "notionviewTests" */;
+			buildPhases = (
+				CFB017A5238E02B000326CFD /* Sources */,
+				CFB017A6238E02B000326CFD /* Frameworks */,
+				CFB017A7238E02B000326CFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFB017AB238E02B000326CFD /* PBXTargetDependency */,
+			);
+			name = notionviewTests;
+			productName = notionviewTests;
+			productReference = CFB017A9238E02B000326CFD /* notionviewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		CFB017B3238E02B000326CFD /* notionviewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CFB017C3238E02B000326CFD /* Build configuration list for PBXNativeTarget "notionviewUITests" */;
+			buildPhases = (
+				CFB017B0238E02B000326CFD /* Sources */,
+				CFB017B1238E02B000326CFD /* Frameworks */,
+				CFB017B2238E02B000326CFD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CFB017B6238E02B000326CFD /* PBXTargetDependency */,
+			);
+			name = notionviewUITests;
+			productName = notionviewUITests;
+			productReference = CFB017B4238E02B000326CFD /* notionviewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CFB0178F238E02AF00326CFD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "jiannan liu";
+				TargetAttributes = {
+					CFB01796238E02AF00326CFD = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					CFB017A8238E02B000326CFD = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = CFB01796238E02AF00326CFD;
+					};
+					CFB017B3238E02B000326CFD = {
+						CreatedOnToolsVersion = 11.2.1;
+						TestTargetID = CFB01796238E02AF00326CFD;
+					};
+				};
+			};
+			buildConfigurationList = CFB01792238E02AF00326CFD /* Build configuration list for PBXProject "notionview" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CFB0178E238E02AF00326CFD;
+			productRefGroup = CFB01798238E02AF00326CFD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CFB01796238E02AF00326CFD /* notionview */,
+				CFB017A8238E02B000326CFD /* notionviewTests */,
+				CFB017B3238E02B000326CFD /* notionviewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CFB01795238E02AF00326CFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB0179F238E02B000326CFD /* Assets.xcassets in Resources */,
+				CFB017A2238E02B000326CFD /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB017A7238E02B000326CFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB017B2238E02B000326CFD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CFB01793238E02AF00326CFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB0179D238E02AF00326CFD /* ViewController.swift in Sources */,
+				CFB0179B238E02AF00326CFD /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB017A5238E02B000326CFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB017AE238E02B000326CFD /* notionviewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CFB017B0238E02B000326CFD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CFB017B9238E02B000326CFD /* notionviewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CFB017AB238E02B000326CFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFB01796238E02AF00326CFD /* notionview */;
+			targetProxy = CFB017AA238E02B000326CFD /* PBXContainerItemProxy */;
+		};
+		CFB017B6238E02B000326CFD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CFB01796238E02AF00326CFD /* notionview */;
+			targetProxy = CFB017B5238E02B000326CFD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		CFB017A0238E02B000326CFD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CFB017A1238E02B000326CFD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CFB017BB238E02B000326CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CFB017BC238E02B000326CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		CFB017BE238E02B000326CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = notionview/notionview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UZ5MSW7K7W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = notionview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ljnjianna.notionview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		CFB017BF238E02B000326CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = notionview/notionview.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UZ5MSW7K7W;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = notionview/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ljnjianna.notionview;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		CFB017C1238E02B000326CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UZ5MSW7K7W;
+				INFOPLIST_FILE = notionviewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = ljnjianna.notionviewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/notionview.app/Contents/MacOS/notionview";
+			};
+			name = Debug;
+		};
+		CFB017C2238E02B000326CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UZ5MSW7K7W;
+				INFOPLIST_FILE = notionviewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = ljnjianna.notionviewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/notionview.app/Contents/MacOS/notionview";
+			};
+			name = Release;
+		};
+		CFB017C4238E02B000326CFD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UZ5MSW7K7W;
+				INFOPLIST_FILE = notionviewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ljnjianna.notionviewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = notionview;
+			};
+			name = Debug;
+		};
+		CFB017C5238E02B000326CFD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = UZ5MSW7K7W;
+				INFOPLIST_FILE = notionviewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ljnjianna.notionviewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = notionview;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CFB01792238E02AF00326CFD /* Build configuration list for PBXProject "notionview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB017BB238E02B000326CFD /* Debug */,
+				CFB017BC238E02B000326CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB017BD238E02B000326CFD /* Build configuration list for PBXNativeTarget "notionview" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB017BE238E02B000326CFD /* Debug */,
+				CFB017BF238E02B000326CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB017C0238E02B000326CFD /* Build configuration list for PBXNativeTarget "notionviewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB017C1238E02B000326CFD /* Debug */,
+				CFB017C2238E02B000326CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CFB017C3238E02B000326CFD /* Build configuration list for PBXNativeTarget "notionviewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CFB017C4238E02B000326CFD /* Debug */,
+				CFB017C5238E02B000326CFD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CFB0178F238E02AF00326CFD /* Project object */;
+}
