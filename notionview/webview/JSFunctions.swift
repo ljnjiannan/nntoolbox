@@ -27,18 +27,13 @@ extension ViewController: SwiftBridgeProtocol{
 
     @objc
     func jsRunScript(_ arg: Any) {
-        ShellUtil.async(command: arg as! String)
+        ShellUtil.shared.async(command: arg as! String)
+//        ShellUtil.async(command: arg as! String)
 //        ShellUtil.shell("source /Users/jiannanliu/.bash_profile")
 //        ShellUtil.shell(arg as! String)
 //        self.runScript(arg as! String)
     }
 
-    
-    @objc
-    func jsTest(_ arg: Any) {
-        print("hahah")
-//        self.wkWebView!.execJavaScript(funcName: "loadDirectorList", content:self.fileList!.toJSONString()!)
-    }
     
     @objc
     func loadDirectorList(_ arg: Any) {

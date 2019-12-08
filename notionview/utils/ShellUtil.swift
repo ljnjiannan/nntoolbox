@@ -8,9 +8,15 @@
 
 import Foundation
 
+protocol ShellScriptDelegate{
+    func scriptCall(_ callback:String);
+}
+
 class ShellUtil {
-    var pipe:Pipe?
-    var task:Process?
+    let ENVI_PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    var delegate:ShellScriptDelegate?
+    var taskList:TaskList = TaskList()
+    
     
     static var shared : ShellUtil {
         struct Static {
@@ -19,28 +25,7 @@ class ShellUtil {
         return Static.instance
     }
     
-    init() {
-        task = Process()
-        task!.launchPath = "/bin/zsh"
-        pipe = Pipe()
-        task?.standardInput = pipe
-        task!.standardOutput = pipe
-        task!.arguments = ["-c", "export PATH=$PATH:/usr/local/bin"]
-        task!.launch()
-        
-//        self.shell("")
-    }
-    
-    func shell(_ command: String) -> String {
-        var coman = "ls"
-        self.pipe?.fileHandleForWriting.write(coman.data(using: String.Encoding.utf8)!)
-//        self.pipe?.fileHandleForWriting.close()
-        let data = pipe!.fileHandleForReading.readDataToEndOfFile()
-        let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-        return output
-    }
-    
-    static func async(command: String,
+    func async(command: String,
                           output: ((String) -> Void)? = nil,
                           terminate: ((Int) -> Void)? = nil) {
 //        let utf8Command = "export LANG=en_US.UTF-8\n" + command
@@ -48,17 +33,18 @@ class ShellUtil {
     }
     
     
-    static func async(shellPath: String,
+    func async(shellPath: String,
                       arguments: [String]? = nil,
                       output: ((String) -> Void)? = nil,
                       terminate: ((Int) -> Void)? = nil) {
         DispatchQueue.global().async {
             let task = Process()
+            let tag = self.taskList.addTask(task)
             let pipe = Pipe()
             let outHandle = pipe.fileHandleForReading
             
             var environment = ProcessInfo.processInfo.environment
-            environment["PATH"] = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+            environment["PATH"] = self.ENVI_PATH
             task.environment = environment
             
             if arguments != nil {
@@ -77,8 +63,9 @@ class ShellUtil {
                         if let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                             DispatchQueue.main.async {
                                 output?(str as String)
+                                self.delegate?.scriptCall(str as String)
+                                task.terminate()
                             }
-                            print(str)
                         }
                         outHandle.waitForDataInBackgroundAndNotify()
                     } else {
@@ -95,8 +82,9 @@ class ShellUtil {
                   object: task, queue: nil) { notification -> Void in
                     DispatchQueue.main.async {
                         terminate?(Int(task.terminationStatus))
+                        print("ternimate  \(tag)")
                     }
-                    NotificationCenter.default.removeObserver(obs2)
+                    NotificationCenter.default.removeObserver(obs2 as Any)
             }
             
             task.launch()

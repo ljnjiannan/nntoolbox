@@ -10,9 +10,9 @@
 		CF268F4F238E0C1E006382D0 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF268F4E238E0C1E006382D0 /* WebKit.framework */; };
 		CF268F52238FA8CB006382D0 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF268F51238FA8CB006382D0 /* FileUtils.swift */; };
 		CF268F54238FC42E006382D0 /* WebViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF268F53238FC42E006382D0 /* WebViewUtils.swift */; };
-		CF268F57238FCA8C006382D0 /* DirectorListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF268F56238FCA8C006382D0 /* DirectorListModel.swift */; };
+		CF268F57238FCA8C006382D0 /* WebModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF268F56238FCA8C006382D0 /* WebModels.swift */; };
 		CF3EEBAD2394B80E00866DA7 /* WebViewBridgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBAC2394B80E00866DA7 /* WebViewBridgeProtocol.swift */; };
-		CF3EEBAF239606B600866DA7 /* FolderDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBAE239606B600866DA7 /* FolderDetailModel.swift */; };
+		CF3EEBAF239606B600866DA7 /* NativeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBAE239606B600866DA7 /* NativeModels.swift */; };
 		CF3EEBB123962B6900866DA7 /* ShellUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBB023962B6900866DA7 /* ShellUtil.swift */; };
 		CFB0179B238E02AF00326CFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0179A238E02AF00326CFD /* AppDelegate.swift */; };
 		CFB0179D238E02AF00326CFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0179C238E02AF00326CFD /* ViewController.swift */; };
@@ -49,9 +49,9 @@
 		CF268F4E238E0C1E006382D0 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		CF268F51238FA8CB006382D0 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
 		CF268F53238FC42E006382D0 /* WebViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewUtils.swift; sourceTree = "<group>"; };
-		CF268F56238FCA8C006382D0 /* DirectorListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectorListModel.swift; sourceTree = "<group>"; };
+		CF268F56238FCA8C006382D0 /* WebModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebModels.swift; sourceTree = "<group>"; };
 		CF3EEBAC2394B80E00866DA7 /* WebViewBridgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewBridgeProtocol.swift; sourceTree = "<group>"; };
-		CF3EEBAE239606B600866DA7 /* FolderDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderDetailModel.swift; sourceTree = "<group>"; };
+		CF3EEBAE239606B600866DA7 /* NativeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeModels.swift; sourceTree = "<group>"; };
 		CF3EEBB023962B6900866DA7 /* ShellUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellUtil.swift; sourceTree = "<group>"; };
 		CFB01797238E02AF00326CFD /* notionview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = notionview.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB0179A238E02AF00326CFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -128,9 +128,9 @@
 		CF268F55238FCA67006382D0 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				CF268F56238FCA8C006382D0 /* DirectorListModel.swift */,
+				CF268F56238FCA8C006382D0 /* WebModels.swift */,
 				CFE10ACF2390A6B100CC9887 /* BaseModel.swift */,
-				CF3EEBAE239606B600866DA7 /* FolderDetailModel.swift */,
+				CF3EEBAE239606B600866DA7 /* NativeModels.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -377,12 +377,12 @@
 				CFE10AD02390A6B100CC9887 /* BaseModel.swift in Sources */,
 				CF268F52238FA8CB006382D0 /* FileUtils.swift in Sources */,
 				CFB0179D238E02AF00326CFD /* ViewController.swift in Sources */,
-				CF268F57238FCA8C006382D0 /* DirectorListModel.swift in Sources */,
+				CF268F57238FCA8C006382D0 /* WebModels.swift in Sources */,
 				CFB0179B238E02AF00326CFD /* AppDelegate.swift in Sources */,
 				CFE10AD22390CB2D00CC9887 /* JSFunctions.swift in Sources */,
 				CF3EEBB123962B6900866DA7 /* ShellUtil.swift in Sources */,
 				CF3EEBAD2394B80E00866DA7 /* WebViewBridgeProtocol.swift in Sources */,
-				CF3EEBAF239606B600866DA7 /* FolderDetailModel.swift in Sources */,
+				CF3EEBAF239606B600866DA7 /* NativeModels.swift in Sources */,
 				CF268F54238FC42E006382D0 /* WebViewUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,9 +10,10 @@ import Cocoa
 import WebKit
 import Alamofire
 
-class ViewController: NSViewController{
+class ViewController: NSViewController,ShellScriptDelegate{
     var wkWebView: WKWebView? = nil
-    let url = "http://localhost:8080"
+    var scriptFiled: NSTextField?
+    let url = "http://192.168.2.122:8080"
     var fileList : [String]?
 //    let url = "http://baidu.com"
     override func viewDidLoad() {
@@ -20,19 +21,15 @@ class ViewController: NSViewController{
     }
     
     override func viewWillAppear() {
+        ShellUtil.shared.delegate = self
         self.initWebView()
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.title = "code-tools"
         self.view.window?.titleVisibility = .hidden
-//        self.initDirector()
-//        self.chooseDir()
-//        let btn = NSButton.init(frame: NSRect.init(x: 10, y: 10, width: 100, height: 200))
-//        btn.title = "点击"
-//
-//        self.view.addSubview(btn)
-//        btn.target = self
-//        btn.action = Selector.init(("tapped"))
-        
+    }
+    
+    func scriptCall(_ callback: String) {
+        self.scriptFiled?.stringValue = self.scriptFiled!.stringValue + callback
     }
     
 
@@ -57,13 +54,20 @@ extension ViewController:NSWindowDelegate, WKNavigationDelegate, WKUIDelegate,WK
             }
         }
         
-        self.wkWebView = WKWebView.init(frame: self.view.frame,configuration: config)
+        let frame = self.view.frame
+        
+        self.scriptFiled = NSTextField.init(frame: NSRect.init(x: 0, y: 0, width: frame.width, height: 200))
+        self.scriptFiled?.isEnabled = false
+        self.view.addSubview(self.scriptFiled!)
+        
+        self.wkWebView = WKWebView.init(frame: NSRect.init(x: 0, y: 200, width: frame.width, height: frame.height - 200),configuration: config)
         self.view.addSubview(self.wkWebView!)
         self.wkWebView!.load(NSURLRequest(url: NSURL(string:self.url)! as URL) as URLRequest)
         self.wkWebView!.navigationDelegate = self
         self.wkWebView?.uiDelegate = self
         self.view.window?.delegate = self
     }
+    
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         print(message.name)
@@ -74,7 +78,7 @@ extension ViewController:NSWindowDelegate, WKNavigationDelegate, WKUIDelegate,WK
     }
     
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-        self.wkWebView!.frame.size = frameSize
+        self.wkWebView!.frame.size = NSSize.init(width: frameSize.width, height: frameSize.height - 200)
         return frameSize
     }
 
@@ -107,7 +111,8 @@ extension ViewController {
 //        ShellUtil.sync(command: "cd /Users/jiannanliu/Project/github/electron-quick-start")
 //        ShellUtil.async(command: "node")
 //        ShellUtil.init().shell("node -v\n")
-        let recentlyUrl = UserDefaults.standard.string(forKey: "recentlyUrl")
+        var recentlyUrl = UserDefaults.standard.string(forKey: "recentlyUrl")
+        recentlyUrl = "/Users/jiannanliu/Project"
 //        self.chooseDir()
 //        self.saveBookmarkData(url: URL.init(string: "/Users/jiannanliu")!)
         if ((recentlyUrl) != nil) {
