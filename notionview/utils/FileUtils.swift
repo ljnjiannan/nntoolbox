@@ -85,6 +85,14 @@ extension FileManager{
                model.modifyDate = stringDate
             }
             model.path = path
+            model.name = self.default.displayName(atPath: path)
+//            let names = path.split(separator: "/")
+//            if (names.count > 0) {
+//                model.name = name
+//            } else {
+//                model.name = ""
+//            }
+            
             model.nodejs = try self.isNodejs(path).toJSONString()
             
         } catch {}

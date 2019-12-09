@@ -13,7 +13,7 @@ import Alamofire
 class ViewController: NSViewController,ShellScriptDelegate{
     var wkWebView: WKWebView? = nil
     var scriptFiled: NSTextField?
-    let url = "http://192.168.2.122:8080"
+    let url = "http://192.168.2.177:8080"
     var fileList : [String]?
 //    let url = "http://baidu.com"
     override func viewDidLoad() {
@@ -21,7 +21,6 @@ class ViewController: NSViewController,ShellScriptDelegate{
     }
     
     override func viewWillAppear() {
-        ShellUtil.shared.delegate = self
         self.initWebView()
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.title = "code-tools"
@@ -112,7 +111,7 @@ extension ViewController {
 //        ShellUtil.async(command: "node")
 //        ShellUtil.init().shell("node -v\n")
         var recentlyUrl = UserDefaults.standard.string(forKey: "recentlyUrl")
-        recentlyUrl = "/Users/jiannanliu/Project"
+        recentlyUrl = "/Users/jiannanliu/Projects"
 //        self.chooseDir()
 //        self.saveBookmarkData(url: URL.init(string: "/Users/jiannanliu")!)
         if ((recentlyUrl) != nil) {

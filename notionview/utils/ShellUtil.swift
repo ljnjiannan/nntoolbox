@@ -8,13 +8,10 @@
 
 import Foundation
 
-protocol ShellScriptDelegate{
-    func scriptCall(_ callback:String);
-}
+
 
 class ShellUtil {
     let ENVI_PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-    var delegate:ShellScriptDelegate?
     var taskList:TaskList = TaskList()
     
     
@@ -25,21 +22,20 @@ class ShellUtil {
         return Static.instance
     }
     
-    func async(command: String,
+    func async(command: String,name: String,
                           output: ((String) -> Void)? = nil,
                           terminate: ((Int) -> Void)? = nil) {
 //        let utf8Command = "export LANG=en_US.UTF-8\n" + command
-        async(shellPath: "/bin/zsh", arguments: ["-c", command], output:output, terminate:terminate)
+        async(shellPath: "/bin/zsh",name: name, arguments: ["-c", command], output:output, terminate:terminate)
     }
     
-    
-    func async(shellPath: String,
+    func async(shellPath: String, name: String,
                       arguments: [String]? = nil,
                       output: ((String) -> Void)? = nil,
                       terminate: ((Int) -> Void)? = nil) {
         DispatchQueue.global().async {
             let task = Process()
-            let tag = self.taskList.addTask(task)
+            let tag = self.taskList.addTask(tag: name, task: task)
             let pipe = Pipe()
             let outHandle = pipe.fileHandleForReading
             
@@ -63,8 +59,8 @@ class ShellUtil {
                         if let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                             DispatchQueue.main.async {
                                 output?(str as String)
-                                self.delegate?.scriptCall(str as String)
-                                task.terminate()
+//                                self.delegate?.scriptCall(str as String)
+//                                task.terminate()
                             }
                         }
                         outHandle.waitForDataInBackgroundAndNotify()
@@ -90,6 +86,10 @@ class ShellUtil {
             task.launch()
             task.waitUntilExit()
         }
+    }
+    
+    func terminateTask(tag:String) -> Void {
+        self.taskList.removeTask(tag: tag)
     }
     
     /** 同步执行

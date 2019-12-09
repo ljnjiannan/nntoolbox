@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 extension ViewController: SwiftBridgeProtocol{
     
@@ -27,13 +28,21 @@ extension ViewController: SwiftBridgeProtocol{
 
     @objc
     func jsRunScript(_ arg: Any) {
-        ShellUtil.shared.async(command: arg as! String)
-//        ShellUtil.async(command: arg as! String)
-//        ShellUtil.shell("source /Users/jiannanliu/.bash_profile")
-//        ShellUtil.shell(arg as! String)
-//        self.runScript(arg as! String)
+        print(arg)
+        let json = arg as! Dictionary<String, Any>
+        ShellUtil.shared.async(command: json["script"]! as! String, name: json["name"]! as! String,output: {
+            output in
+            self.scriptCall(output)
+        }, terminate: {
+            terminate in
+            print(terminate)
+        })
     }
 
+    @objc
+    func jsTerminateScript(_ arg: Any) {
+        ShellUtil.shared.terminateTask(tag: arg as! String)
+    }
     
     @objc
     func loadDirectorList(_ arg: Any) {
