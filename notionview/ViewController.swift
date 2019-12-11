@@ -13,7 +13,8 @@ import Alamofire
 class ViewController: NSViewController,ShellScriptDelegate{
     var wkWebView: WKWebView? = nil
     var scriptFiled: NSTextField?
-    let url = "http://192.168.2.122:8080"
+    let url = "http://localhost:8080"
+//    let url = "http://192.168.2.122:8080"
     var fileList : [String]?
 //    let url = "http://baidu.com"
     override func viewDidLoad() {
