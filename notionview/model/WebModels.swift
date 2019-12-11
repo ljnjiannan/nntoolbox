@@ -36,6 +36,7 @@ struct FolderDetailModel:Mappable {
     var modifyDate:String?
     var nodejs:String?
     var path:String?
+    var isRunninng:Bool?
 }
 
 struct NodejsInfo:Mappable {

@@ -8,13 +8,10 @@
 
 import Foundation
 
-protocol ShellScriptDelegate{
-    func scriptCall(_ callback:String);
-}
+
 
 class ShellUtil {
     let ENVI_PATH = "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-    var delegate:ShellScriptDelegate?
     var taskList:TaskList = TaskList()
     
     
@@ -25,21 +22,20 @@ class ShellUtil {
         return Static.instance
     }
     
-    func async(command: String,
-                          output: ((String) -> Void)? = nil,
-                          terminate: ((Int) -> Void)? = nil) {
+    func async(command: String,name: String,
+                          output: ((TaskOutputModel) -> Void)? = nil,
+                          terminate: ((String) -> Void)? = nil) {
 //        let utf8Command = "export LANG=en_US.UTF-8\n" + command
-        async(shellPath: "/bin/zsh", arguments: ["-c", command], output:output, terminate:terminate)
+        async(shellPath: "/bin/zsh",name: name, arguments: ["-c", command], output:output, terminate:terminate)
     }
     
-    
-    func async(shellPath: String,
+    func async(shellPath: String, name: String,
                       arguments: [String]? = nil,
-                      output: ((String) -> Void)? = nil,
-                      terminate: ((Int) -> Void)? = nil) {
+                      output: ((TaskOutputModel) -> Void)? = nil,
+                      terminate: ((String) -> Void)? = nil) {
         DispatchQueue.global().async {
             let task = Process()
-            let tag = self.taskList.addTask(task)
+            let tag = self.taskList.addTask(tag: name, task: task)
             let pipe = Pipe()
             let outHandle = pipe.fileHandleForReading
             
@@ -62,17 +58,18 @@ class ShellUtil {
                     if data.count > 0 {
                         if let str = NSString(data: data, encoding: String.Encoding.utf8.rawValue) {
                             DispatchQueue.main.async {
-                                output?(str as String)
-                                self.delegate?.scriptCall(str as String)
-                                task.terminate()
+                                var out = TaskOutputModel()
+                                out.tag = tag
+                                out.content = str as String
+                                self.taskList.addLogs(tag, content: str as String)
+                                output?(out)
                             }
                         }
                         outHandle.waitForDataInBackgroundAndNotify()
                     } else {
                         NotificationCenter.default.removeObserver(obs1 as Any)
                         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-                         let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-                         print(output)
+                         let _: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
                         pipe.fileHandleForReading.closeFile()
                     }
             }
@@ -81,15 +78,20 @@ class ShellUtil {
             obs2 = NotificationCenter.default.addObserver(forName: Process.didTerminateNotification,
                   object: task, queue: nil) { notification -> Void in
                     DispatchQueue.main.async {
-                        terminate?(Int(task.terminationStatus))
-                        print("ternimate  \(tag)")
+                        terminate?(tag)
+                        self.taskList.removeTask(tag: tag)
                     }
                     NotificationCenter.default.removeObserver(obs2 as Any)
             }
             
             task.launch()
+            print("process id: \(task.processIdentifier)")
             task.waitUntilExit()
         }
+    }
+    
+    func terminateTask(tag:String) -> Void {
+        self.taskList.removeTask(tag: tag)
     }
     
     /** 同步执行
@@ -135,7 +137,6 @@ class ShellUtil {
         
         task.waitUntilExit()
         pipe.fileHandleForReading.closeFile()
-        print(output)
         return (Int(task.terminationStatus), output)
     }
 

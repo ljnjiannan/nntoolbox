@@ -13,20 +13,20 @@ import Alamofire
 class ViewController: NSViewController,ShellScriptDelegate{
     var wkWebView: WKWebView? = nil
     var scriptFiled: NSTextField?
+
     let url = "http://localhost:8080"
 //    let url = "http://192.168.2.122:8080"
     var fileList : [String]?
-//    let url = "http://baidu.com"
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear() {
-        ShellUtil.shared.delegate = self
         self.initWebView()
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.title = "code-tools"
         self.view.window?.titleVisibility = .hidden
+        
     }
     
     func scriptCall(_ callback: String) {
@@ -57,11 +57,11 @@ extension ViewController:NSWindowDelegate, WKNavigationDelegate, WKUIDelegate,WK
         
         let frame = self.view.frame
         
-        self.scriptFiled = NSTextField.init(frame: NSRect.init(x: 0, y: 0, width: frame.width, height: 200))
-        self.scriptFiled?.isEnabled = false
-        self.view.addSubview(self.scriptFiled!)
+//        self.scriptFiled = NSTextField.init(frame: NSRect.init(x: 0, y: 0, width: frame.width, height: 200))
+//        self.scriptFiled?.isEnabled = false
+//        self.view.addSubview(self.scriptFiled!)
         
-        self.wkWebView = WKWebView.init(frame: NSRect.init(x: 0, y: 200, width: frame.width, height: frame.height - 200),configuration: config)
+        self.wkWebView = WKWebView.init(frame: NSRect.init(x: 0, y: 0, width: frame.width, height: frame.height),configuration: config)
         self.view.addSubview(self.wkWebView!)
         self.wkWebView!.load(NSURLRequest(url: NSURL(string:self.url)! as URL) as URLRequest)
         self.wkWebView!.navigationDelegate = self
@@ -79,7 +79,7 @@ extension ViewController:NSWindowDelegate, WKNavigationDelegate, WKUIDelegate,WK
     }
     
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
-        self.wkWebView!.frame.size = NSSize.init(width: frameSize.width, height: frameSize.height - 200)
+        self.wkWebView!.frame.size = NSSize.init(width: frameSize.width, height: frameSize.height)
         return frameSize
     }
 
@@ -108,10 +108,6 @@ extension ViewController {
     
     // 初始化目录选择
     func initDirector() {
-//        ShellUtil.sync(command: "node -v")
-//        ShellUtil.sync(command: "cd /Users/jiannanliu/Project/github/electron-quick-start")
-//        ShellUtil.async(command: "node")
-//        ShellUtil.init().shell("node -v\n")
         var recentlyUrl = UserDefaults.standard.string(forKey: "recentlyUrl")
         recentlyUrl = "/Users/jiannanliu/Project"
 //        self.chooseDir()
@@ -177,7 +173,7 @@ extension ViewController {
                 model.isFolder = FileManager.isDirector(path: model.path!)
                 model.git = FileManager.isGitDirector(model.path!)
                 model.folderType = FileManager.directorType(model.path!)
-                fileList.append(try model.toJSONString())
+                fileList.append(model.toJSONString())
             }
             self.fileList = fileList
             let dic = [
@@ -194,8 +190,6 @@ extension ViewController {
     // 获取文件夹详情
     func loadFolderDetail(_ path: String) {
         let model = FileManager.folderDetail(path)
-        do {
-            try self.loadJsFunction("swiftLoadFolderDetail", content: model.toJSONString())
-        }catch {}
+        self.loadJsFunction("swiftLoadFolderDetail", content: model.toJSONString())
     }
 }

@@ -20,4 +20,6 @@ protocol SwiftBridgeProtocol {
     func jsFindDictories(_ arg:Any)
 }
 
-
+protocol ShellScriptDelegate{
+    func scriptCall(_ callback:String);
+}

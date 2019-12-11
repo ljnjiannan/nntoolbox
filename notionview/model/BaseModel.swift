@@ -36,12 +36,13 @@ extension Mappable {
     
     
     //模型转json字符串
-    func toJSONString() throws -> String {
+    func toJSONString() -> String {
         if let str = self.reflectToDict().toJSONString() {
             return str
         }
         print(MapError.modelToJsonFail)
-        throw MapError.modelToJsonFail
+        return ""
+//        throw MapError.modelToJsonFail
     }
     
 }
