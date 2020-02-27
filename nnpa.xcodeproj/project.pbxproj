@@ -15,6 +15,7 @@
 		CF3EEBAD2394B80E00866DA7 /* WebViewBridgeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBAC2394B80E00866DA7 /* WebViewBridgeProtocol.swift */; };
 		CF3EEBAF239606B600866DA7 /* NativeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBAE239606B600866DA7 /* NativeModels.swift */; };
 		CF3EEBB123962B6900866DA7 /* ShellUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF3EEBB023962B6900866DA7 /* ShellUtil.swift */; };
+		CF3F2A61240756DE0020295E /* web in Resources */ = {isa = PBXBuildFile; fileRef = CF3F2A60240756DE0020295E /* web */; };
 		CF9BF28923D8217100271FC0 /* TaskUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF9BF28823D8217100271FC0 /* TaskUtil.swift */; };
 		CFB0179B238E02AF00326CFD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0179A238E02AF00326CFD /* AppDelegate.swift */; };
 		CFB0179D238E02AF00326CFD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFB0179C238E02AF00326CFD /* ViewController.swift */; };
@@ -64,6 +65,7 @@
 		CF3EEBAC2394B80E00866DA7 /* WebViewBridgeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewBridgeProtocol.swift; sourceTree = "<group>"; };
 		CF3EEBAE239606B600866DA7 /* NativeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NativeModels.swift; sourceTree = "<group>"; };
 		CF3EEBB023962B6900866DA7 /* ShellUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellUtil.swift; sourceTree = "<group>"; };
+		CF3F2A60240756DE0020295E /* web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = web; sourceTree = "<group>"; };
 		CF9BF28823D8217100271FC0 /* TaskUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskUtil.swift; sourceTree = "<group>"; };
 		CFB01797238E02AF00326CFD /* nnpa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = nnpa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB0179A238E02AF00326CFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		CFB0178E238E02AF00326CFD = {
 			isa = PBXGroup;
 			children = (
+				CF3F2A60240756DE0020295E /* web */,
 				CFB01799238E02AF00326CFD /* nnpa */,
 				CFB017AC238E02B000326CFD /* nnpaTests */,
 				CFB017B7238E02B000326CFD /* nnpaUITests */,
@@ -361,6 +364,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF3F2A61240756DE0020295E /* web in Resources */,
 				CFB0179F238E02B000326CFD /* Assets.xcassets in Resources */,
 				CFB017A2238E02B000326CFD /* Main.storyboard in Resources */,
 			);

@@ -21,7 +21,10 @@ extension ViewController:NSWindowDelegate, WKNavigationDelegate, WKUIDelegate {
         let frame = self.view.frame
         self.wkWebView = WKWebView.init(frame: NSRect.init(x: 0, y: 0, width: frame.width, height: frame.height),configuration: config)
         self.view.addSubview(self.wkWebView!)
-        self.wkWebView!.load(NSURLRequest(url: NSURL(string:CodeToolsConf.URL_WEBVIEW)! as URL) as URLRequest)
+        
+//        let bundle = Bundle.init(for: ViewController.self)
+        let url = Bundle.main.url(forResource: "index", withExtension: "html", subdirectory: "web/dist")
+        self.wkWebView?.loadFileURL(url!, allowingReadAccessTo: Bundle.main.bundleURL)
         self.wkWebView!.navigationDelegate = self
         self.wkWebView?.uiDelegate = self
         self.view.window?.delegate = self
@@ -35,25 +38,34 @@ extension ViewController:NSWindowDelegate, WKNavigationDelegate, WKUIDelegate {
                 controller.add(jsBridge, name: methodName)
             }
         }
+        let frameSize = self.view.window?.frame.size
+        self.wkWebView!.frame.size = NSSize.init(width: frameSize!.width, height: frameSize!.height)
     }
     
     
     func windowWillResize(_ sender: NSWindow, to frameSize: NSSize) -> NSSize {
+//        print("frame size:  \(frameSize.height)  \(frameSize.width)")
+//        if (frameSize.width < 960) {
+//            return NSSize.init(width: 960, height: frameSize.height)
+//        }
+//        if (frameSize.height < 480) {
+//            return NSSize.init(width: frameSize.width, height: 480)
+//        }
         self.wkWebView!.frame.size = NSSize.init(width: frameSize.width, height: frameSize.height)
         return frameSize
     }
 
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if let url = navigationAction.request.url{
-            print("url:  \(url.absoluteString)  and \(CodeToolsConf.URL_WEBVIEW)")
-            if (url.absoluteString == "about:blank") {}
-            else if (!url.absoluteString.starts(with: CodeToolsConf.URL_WEBVIEW)) {
-                NSWorkspace.shared.open(url)
-                return
-            } else if (navigationAction.targetFrame == nil) {
-                webView.load(navigationAction.request)
-            }
-        }
+//        if let url = navigationAction.request.url{
+////            if (url.absoluteString == "about:blank") {}
+////            else if (!url.absoluteString.starts(with: CodeToolsConf.URL_WEBVIEW)) {
+////                NSWorkspace.shared.open(url)
+////                return
+////            } else if (navigationAction.targetFrame == nil) {
+////                webView.load(navigationAction.request)
+////            }
+////            webView.load(navigationAction.request)
+//        }
         decisionHandler(WKNavigationActionPolicy.allow)
     }
     

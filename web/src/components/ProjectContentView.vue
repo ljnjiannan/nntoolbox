@@ -122,7 +122,7 @@ export default {
       this.$jsb("getSettingData",{path: ""})
         .then(res => {
           const data = JSON.parse(res)
-          if (data.terminalPath) {
+          if (data.idePath) {
             this.$jsb("openFile",{path: this.path, app: data.idePath})
           } else {
             this.$message({

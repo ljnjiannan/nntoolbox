@@ -20,17 +20,17 @@ class ViewController: NSViewController,ApplicationDelegate{
     
 
     override func viewWillAppear() {
+        
         self.initStatusBar()
-        self.initWebView()
         self.view.window?.titlebarAppearsTransparent = true
         self.view.window?.title = "code-tools"
         self.view.window?.titleVisibility = .hidden
-        self.initPreferenceButton()
-        let _ = ShellEnviConf.init()
-        self.initRunngingList()
-        let _ = self.initDirectory()
+        self.view.window?.minSize = NSSize(width: 960, height: 480)
+        self.view.window!.setContentSize(NSSize(width: 960, height: 480))
         let delegate = NSApplication.shared.delegate as! AppDelegate
         delegate.setApplicationDelegate(self)
+        self.initPreferenceButton()
+        
         
     }
     
@@ -49,10 +49,16 @@ class ViewController: NSViewController,ApplicationDelegate{
     func initStatusBar() {
         let statusBar = NSStatusBar.system
         statusBarItem = statusBar.statusItem(withLength: NSStatusItem.squareLength)
-        statusBarItem.button?.title = "🌯"
-        statusBarMenu = NSMenu(title: "Cap Status Bar Menu")
-        statusBarItem.menu = statusBarMenu
-        statusBarMenu?.addItem(withTitle: "停止", action: nil, keyEquivalent: "")
+        statusBarItem.button?.title = "N"
+        if let button = statusBarItem.button {
+            button.target = self
+            button.action = #selector(self.statusBarButtonClicked(sender:))
+            button.sendAction(on: NSEvent.EventTypeMask.leftMouseUp)
+        }
+    }
+    
+    @objc func statusBarButtonClicked(sender: NSStatusBarButton) {
+        NSApp.activate(ignoringOtherApps: true)
     }
     
     func initPreferenceButton() {
@@ -71,6 +77,10 @@ class ViewController: NSViewController,ApplicationDelegate{
 
     
     override func viewDidAppear() {
+        self.initWebView()
+        let _ = ShellEnviConf.init()
+        self.initRunngingList()
+        let _ = self.initDirectory()
 //        let task = TaskList.init()
 //        task.addTask(tag: "停止", task: Process())
 //        addStatusBar(tastList: task)
